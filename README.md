@@ -1,20 +1,24 @@
-# SMBMAP formateur
+# SMBMAP formating
 
-Ce script sert à formater les sorties textes de smbmap.
-Une sortie de smbmap sur un sous-réseaux entier est complexe à analyser car les informations sont séparées de plusieurs dizaines/centaines de lignes.
-L'utilisation du script se fait ainsi
+This script reformats the output of the great smb mapping tool from ShawnDEvans
+ https://github.com/ShawnDEvans/smbmap
 
-```
-python3 smbformat.py <Sortie_smbmap.txt> <Nom_fichier_sortie.txt>
+The smbmap tool is great and I use it often but it's output can be quiet confusing 
+as it splits the info across multiple lines.
 
-```
-
-Aucune dépendance requise.
-
-La sortie finale du script doit ressembler à 
+The output generated with this tool gather all the info on one line.
 
 ```
-\\172.24.1.10:445\IPC$\lsass    r--r--r--       4 Mon Jan  1 00:09:21 1601
+\\172.16.0.10:445\IPC$\lsass    r--r--r--       4 Mon Jan  1 00:09:21 1601
 
 \\SERVER\SHARE\PATH\TO\FILE	Permissions	size DATE
+```
+
+# Run it
+
+Install python 3 if not installed already, and just run it with
+
+```
+python3 smbformat.py <smbmap_output.txt> <formated_output.txt>
+
 ```
